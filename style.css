@@ -167,3 +167,11 @@ button, .button, .btn, a.button, a.btn {
   min-height: 58px !important;
   line-height: 1.2 !important;
 }
+
+/* v23 district subtitle */
+.district-subtitle {
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: -10px 0 24px;
+}
