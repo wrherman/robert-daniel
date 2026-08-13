@@ -1,1 +1,169 @@
 :root{--navy:#0b2748;--blue:#1f5d9b;--red:#b3262e;--cream:#f7f5ef;--ink:#18212b;--muted:#66717c;--white:#fff}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}header{background:var(--navy);color:#fff;padding:18px 0;border-bottom:5px solid var(--red)}.wrap{width:min(1080px,92%);margin:auto}.brand{display:flex;justify-content:space-between;align-items:center;gap:20px}.brand a{color:white;text-decoration:none}.candidate{font-size:1.5rem;font-weight:800;letter-spacing:.02em}.office{font-size:.92rem;opacity:.85}nav{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px}nav a{color:#fff;text-decoration:none;font-weight:700;font-size:.95rem}.hero{padding:64px 0;background:linear-gradient(135deg,#eef3f8,#fff)}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}.eyebrow{color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.08em}h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:1;margin:.2em 0}.tagline{font-size:1.3rem;color:#405064;max-width:700px}.photo{aspect-ratio:4/5;background:#d8dee5;border:8px solid white;box-shadow:0 12px 30px #0002;display:grid;place-items:center;text-align:center;padding:20px;font-weight:700;color:#5b6570;filter:blur(3px)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-block;padding:12px 20px;border-radius:5px;text-decoration:none;font-weight:800}.primary{background:var(--red);color:#fff}.secondary{background:var(--blue);color:#fff}.outline{border:2px solid var(--navy);color:var(--navy)}section{padding:52px 0}.section-title{font-size:2rem;margin:0 0 8px}.lead{color:var(--muted);max-width:760px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}.card{background:white;border-top:4px solid var(--blue);padding:24px;box-shadow:0 4px 18px #0001}.card h3{margin-top:0}.card a{color:var(--blue);font-weight:800}.notice{background:#fff4d6;border:1px solid #e6c96f;padding:15px 18px;border-radius:5px;margin:22px 0}.issue{max-width:800px;background:#fff;padding:36px;margin:42px auto;box-shadow:0 4px 20px #0001}.issue h1{font-size:2.5rem}.placeholder{background:#eef1f4;border-left:4px solid var(--blue);padding:18px;color:#4e5965}footer{background:#081d35;color:#dce5ef;padding:32px 0;margin-top:50px}.small{font-size:.9rem;color:#6b7681}footer .small{color:#b9c6d3}@media(max-width:760px){.hero-grid,.cards{grid-template-columns:1fr}.hero{padding:38px 0}.photo{max-width:360px}.brand{align-items:flex-start;flex-direction:column}}
+
+/* Royal purple / yellow campaign override */
+:root {
+  --campaign-purple: #4B0082;
+  --campaign-yellow: #FFD700;
+}
+
+html, body {
+  background: var(--campaign-purple) !important;
+  color: var(--campaign-yellow) !important;
+}
+
+header, nav, main, section, article, footer,
+.hero, .card, .issue-card, .container, .content, .panel,
+main > div, main > section, section > div {
+  background: var(--campaign-purple) !important;
+  background-color: var(--campaign-purple) !important;
+  color: var(--campaign-yellow) !important;
+  box-shadow: none !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, li, span, label, strong, em {
+  color: var(--campaign-yellow) !important;
+}
+
+a {
+  color: var(--campaign-yellow) !important;
+}
+
+button, .button, .btn, a.button, a.btn {
+  background: var(--campaign-yellow) !important;
+  color: var(--campaign-purple) !important;
+  border-color: var(--campaign-yellow) !important;
+}
+
+
+/* Public candidate information */
+.candidate-photo img,
+.photo img,
+.portrait img {
+  filter: none !important;
+  width: 100%;
+  max-width: 330px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+.blurred, .blur {
+  filter: none !important;
+}
+.contact-phone a {
+  color: var(--campaign-yellow) !important;
+}
+
+.blur,.blurred,.redacted,.masked{filter:none!important;text-shadow:none!important}
+.issue-detail{background:var(--campaign-purple)!important;color:var(--campaign-yellow)!important;max-width:900px;margin:2rem auto}
+.issue-detail p{font-size:1.15rem;line-height:1.7}
+
+/* v9: candidate name is public and must never be obscured */
+.candidate-name, .name, .brand, .site-title, .redacted, .masked, .blur, .blurred {
+  filter: none !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--campaign-yellow) !important;
+}
+.candidate-name::before, .candidate-name::after,
+.name::before, .name::after,
+.redacted::before, .redacted::after,
+.masked::before, .masked::after,
+.blur::before, .blur::after,
+.blurred::before, .blurred::after {
+  content: none !important;
+  display: none !important;
+}
+
+.content-section{background:var(--campaign-purple)!important;color:var(--campaign-yellow)!important;padding:2rem 0}
+.content-section .wrap{max-width:900px}.content-section p{line-height:1.7;font-size:1.05rem}
+
+.phone-btn { margin-left: .5rem; }
+@media (max-width: 600px) {
+  .phone-btn { margin-left: 0; margin-top: .5rem; }
+}
+
+/* v13: single-column top section */
+.hero-grid {
+  display: block !important;
+  grid-template-columns: 1fr !important;
+}
+.hero .content-section {
+  width: 100% !important;
+  max-width: none !important;
+  padding: 1.25rem 0 !important;
+}
+.hero .content-section .wrap {
+  max-width: 900px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* v14: candidate photo below full-width Meet Robert Daniel section */
+.candidate-photo-full {
+  width: 100%;
+  text-align: center;
+  margin: 1rem 0 2rem;
+}
+.candidate-photo-full img {
+  display: inline-block;
+  width: min(330px, 90%);
+  height: auto;
+  border-radius: 12px;
+  filter: none !important;
+}
+
+/* v15: top hero has name left, photo right; Meet Robert follows full-width */
+.hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px) !important;
+  gap: 2rem !important;
+  align-items: center !important;
+}
+.hero-photo {
+  text-align: right;
+}
+.hero-photo img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 12px;
+  filter: none !important;
+}
+@media (max-width: 700px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-photo {
+    text-align: center;
+  }
+}
+
+/* v16 fixed top layout */
+.top-hero,.meet-section{background:var(--campaign-purple)!important;color:var(--campaign-yellow)!important}
+.top-hero{padding:42px 0 32px!important}
+.top-grid{display:grid!important;grid-template-columns:minmax(0,1fr) 320px!important;gap:48px!important;align-items:center!important;max-width:1080px!important;margin:0 auto!important}
+.top-copy h1{margin:0 0 24px!important}.top-copy .eyebrow{margin-bottom:16px!important}
+.hero-actions{display:flex!important;flex-wrap:wrap!important;gap:12px!important}
+.top-photo{width:320px!important;justify-self:end!important}.top-photo img{display:block!important;width:320px!important;height:auto!important;border-radius:12px!important;filter:none!important}
+.meet-section{display:block!important;width:100%!important;padding:26px 0 38px!important;clear:both!important}
+.meet-wrap{display:block!important;max-width:1080px!important;margin:0 auto!important}.meet-section p{width:100%!important;max-width:none!important;line-height:1.7!important}
+@media(max-width:760px){.top-grid{grid-template-columns:1fr!important}.top-photo{justify-self:start!important;width:min(320px,100%)!important}.top-photo img{width:min(320px,100%)!important}}
+
+/* v19: seven-button Where I Stand navigation */
+.where-stand{background:var(--campaign-purple)!important;color:var(--campaign-yellow)!important;padding:32px 0}
+.issue-button-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))!important;gap:14px!important;margin-top:20px!important}
+.issue-nav-btn{display:block!important;text-align:center!important}
+.issue-detail{background:var(--campaign-purple)!important;color:var(--campaign-yellow)!important;min-height:100vh;padding:48px 0}
+.issue-detail .wrap{max-width:900px!important;margin:0 auto!important}
+.issue-detail p{font-size:1.1rem!important;line-height:1.75!important}
+
+/* v20: vertically center all Where I Stand button labels */
+.issue-nav-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 58px !important;
+  line-height: 1.2 !important;
+}
