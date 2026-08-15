@@ -175,3 +175,5 @@ button, .button, .btn, a.button, a.btn {
   line-height: 1.3;
   margin: -10px 0 24px;
 }
+
+.campaign-disclaimer{margin:18px 0 14px;padding:14px 16px;border:2px solid currentColor;border-radius:10px;text-align:center;font-size:.98rem;line-height:1.45}
